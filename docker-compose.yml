@@ -16,7 +16,6 @@ services:
       - "1433:1433"
     volumes:
     # mount a local project sub directory  to docker
-      - ./certs:/certs
       - ./mssql/data:/var/opt/mssql
     networks:
       - backend
