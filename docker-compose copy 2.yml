@@ -1,0 +1,30 @@
+version: '4.26.0'
+
+# services:
+#   sql_server:
+#     image: mcr.microsoft.com/mssql/server:2022-latest
+#     environment:
+#       SA_PASSWORD: "LaravelUser@123"
+#       ACCEPT_EULA: "Y"
+#       MSSQL_PID: "Express"
+#       MSSQL_TCP_PORT: "1433"
+#    ports:
+#       - "127.0.0.1:1433:1433"
+
+services:
+  sql_server:
+    image: mcr.microsoft.com/mssql/server:2022-latest
+    restart: always
+    environment:
+      SA_PASSWORD: "LaravelUser@123"
+      ACCEPT_EULA: "Y"
+      MSSQL_PID: "Express"
+      MSSQL_TCP_PORT: "1433"
+    ports:
+      - "127.0.0.1:1433:1433"
+    volumes:
+      - ./mssql/data:/var/opt/mssql
+    networks:
+        backend:
+          aliases:
+            - mssql
